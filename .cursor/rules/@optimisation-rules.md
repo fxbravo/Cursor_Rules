@@ -1,0 +1,42 @@
+# OPTIMIZATION Rules
+
+## INTERDICTIONS ABSOLUES
+NEVER optimize without concrete baseline performance measurements
+NEVER optimize multiple components in one session
+NEVER sacrifice code readability without documented performance evidence
+NEVER optimize based on assumptions about performance bottlenecks
+
+## MANDATORY ACTIONS
+Run performance profiler and record baseline metrics before any changes
+Identify single worst-performing function or operation from profiler data
+Optimize only that specific bottleneck component
+Measure performance after change and calculate improvement percentage
+Revert changes if improvement is less than 20% or functionality breaks
+
+## ALLOWED OPERATIONS ONLY
+Replace algorithms with more efficient versions (document complexity change)
+Add caching for expensive operations with measured lookup performance cost
+Replace slow library calls with faster alternatives (benchmark both)
+Optimize database queries with documented execution time improvements
+Remove or reduce expensive operations in performance-critical code paths
+
+## PROCESS
+1. Run profiler (Chrome DevTools Performance, Node.js --prof, etc.)
+2. Record baseline metrics: execution time, memory usage, render time
+3. Identify single function consuming most resources from profiler output
+4. Implement one specific optimization targeting that bottleneck only
+5. Run profiler again with identical test conditions
+6. Calculate percentage improvement in targeted metric
+7. If improvement < 20%, revert changes and try different approach
+
+## SUCCESS CRITERIA
+Baseline performance: measured and documented
+Bottleneck identification: based on profiler evidence, not assumptions
+Performance improvement: minimum 20% in targeted metric
+Functionality: completely unchanged after optimization
+Code readability: maintained or improved with explanatory comments
+Evidence: before/after profiler screenshots or measurement data
+
+## VALIDATION RULE
+No profiler evidence means no optimization permitted.
+If bottleneck unclear, STOP and ask: "No clear performance bottleneck identified from profiler data. Should I help you set up proper performance measurement tools first?"
