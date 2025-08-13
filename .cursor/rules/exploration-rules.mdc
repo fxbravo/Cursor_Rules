@@ -1,0 +1,89 @@
+---
+description: "POC development and technical validation with mandatory cleanup"
+globs: ["prototype/**/*", "poc/**/*", "experiments/**/*", "temp/**/*", "src/**/*.{ts,js,jsx,tsx}"]
+alwaysApply: false
+---
+
+# EXPLORATION Rules
+
+## INTERDICTIONS ABSOLUES
+NEVER write production-quality code during exploration
+NEVER integrate experimental code into main codebase
+NEVER leave any experimental files after exploration ends
+NEVER explore more than one approach simultaneously
+
+## MANDATORY ACTIONS
+Add "// TEMP - EXPLORATION" comment to every new file created
+Write specific question being explored in README-EXPLORATION.md
+Define measurable pass/fail criteria before writing any code
+Set specific deadline for exploration phase completion
+Document final decision and reasoning in README-EXPLORATION.md
+
+## ALLOWED OPERATIONS ONLY
+Create temporary files prefixed with "temp-" or "exploration-"
+Write quick proof-of-concept code with hardcoded test values
+Copy-paste existing code temporarily to test modifications
+Skip comprehensive error handling and edge cases during exploration
+Use extensive console.log statements for debugging and validation
+
+## PROCESS
+1. Write exploration question and success criteria in README-EXPLORATION.md
+2. Create temp-[feature-name]/ folder for all experimental files
+3. Build minimal proof of concept addressing the specific question
+4. Test against defined pass/fail criteria with real data
+5. Document results, findings, and recommendation in README-EXPLORATION.md
+6. Make go/no-go decision based on criteria
+7. Delete entire temp-[feature-name]/ folder and all experimental files
+
+## SUCCESS CRITERIA
+Exploration question: clearly answered with evidence
+Pass/fail criteria: tested with documented results
+Technical feasibility: proven or disproven with concrete evidence
+Decision: documented (proceed, abandon, or try different approach)
+Cleanup: ALL temporary files and folders completely removed
+Knowledge transfer: findings documented for future reference
+
+## VALIDATION RULE
+Exploration requires mandatory cleanup of all temporary code.
+If exploration becomes implementation, STOP and ask: "This POC is becoming production code. Should I clean up all temporary files and switch to @feature-rules.md to implement properly from scratch?"# EXPLORATION Rules
+
+## INTERDICTIONS ABSOLUES
+NEVER write production-quality code during exploration
+NEVER integrate experimental code into main codebase
+NEVER leave any experimental files after exploration ends
+NEVER explore more than one approach simultaneously
+
+## MANDATORY ACTIONS
+Add "// TEMP - EXPLORATION" comment to every new file created
+Write specific question being explored in README-EXPLORATION.md
+Define measurable pass/fail criteria before writing any code
+Set specific deadline for exploration phase completion
+Document final decision and reasoning in README-EXPLORATION.md
+
+## ALLOWED OPERATIONS ONLY
+Create temporary files prefixed with "temp-" or "exploration-"
+Write quick proof-of-concept code with hardcoded test values
+Copy-paste existing code temporarily to test modifications
+Skip comprehensive error handling and edge cases during exploration
+Use extensive console.log statements for debugging and validation
+
+## PROCESS
+1. Write exploration question and success criteria in README-EXPLORATION.md
+2. Create temp-[feature-name]/ folder for all experimental files
+3. Build minimal proof of concept addressing the specific question
+4. Test against defined pass/fail criteria with real data
+5. Document results, findings, and recommendation in README-EXPLORATION.md
+6. Make go/no-go decision based on criteria
+7. Delete entire temp-[feature-name]/ folder and all experimental files
+
+## SUCCESS CRITERIA
+Exploration question: clearly answered with evidence
+Pass/fail criteria: tested with documented results
+Technical feasibility: proven or disproven with concrete evidence
+Decision: documented (proceed, abandon, or try different approach)
+Cleanup: ALL temporary files and folders completely removed
+Knowledge transfer: findings documented for future reference
+
+## VALIDATION RULE
+Exploration requires mandatory cleanup of all temporary code.
+If exploration becomes implementation, STOP and ask: "This POC is becoming production code. Should I clean up all temporary files and switch to @feature-rules.md to implement properly from scratch?"

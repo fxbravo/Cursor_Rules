@@ -1,0 +1,47 @@
+---
+description: "Technology migration and version upgrade strategies"
+globs: ["**/*.{ts,js,jsx,tsx}", "package.json", "tsconfig.json", "*.config.{js,ts}", "migrations/**/*"]
+alwaysApply: false
+---
+
+# MIGRATION Rules
+
+## INTERDICTIONS ABSOLUES
+NEVER delete old system files until new system is 100% validated
+NEVER migrate all features simultaneously in one commit
+NEVER modify old and new systems simultaneously
+NEVER skip risk assessment for migration approach
+
+## MANDATORY ACTIONS
+Assess migration complexity and risk level first
+Choose appropriate migration strategy: direct replacement OR phased approach
+If phased: Phase 1 build new system, Phase 2 switch incrementally, Phase 3 cleanup
+If direct: Ensure comprehensive testing and rollback plan ready
+Maintain functional compatibility throughout migration process
+
+## ALLOWED OPERATIONS ONLY
+Create new files implementing replacement system
+Add feature flags to toggle between old and new implementations
+Modify configuration to gradually route traffic to new system
+Remove old system files only in final phase 3
+Update documentation only after migration fully completed
+
+## PROCESS
+1. ASSESS: Evaluate migration complexity, risk level, and system coupling
+2. CHOOSE STRATEGY: Direct replacement for simple changes, phased for complex systems  
+3. PLAN: Create detailed migration plan with rollback procedures
+4. IMPLEMENT: Execute migration strategy with validation at each step
+5. VALIDATE: Verify functionality and performance match requirements
+6. CLEANUP: Remove old system components after successful validation
+
+## SUCCESS CRITERIA
+Functional parity: new system matches old system behavior exactly
+Feature migration: completed incrementally with individual validation
+Rollback capability: maintained until phase 3 completion
+Performance: equal or measurably better than old system
+Code cleanup: old system files completely removed with zero references
+Documentation: updated to reflect new system architecture
+
+## VALIDATION RULE
+Migration requires three phases when system complexity or risk justifies it.
+If your approach skips phases, STOP and ask: "I want to simplify migration approach. Should I assess if this specific migration can be done safely with fewer phases, or if three phases are necessary for this complexity level?"

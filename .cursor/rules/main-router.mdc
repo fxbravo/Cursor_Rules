@@ -1,0 +1,61 @@
+---
+description: "Smart context router for hierarchical rule selection and classification"
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Smart Context Router
+
+## WORKFLOW PRINCIPAL
+1. ANALYSER contexte: urgence, scope, contraintes mentionnées
+2. CLASSIFIER selon priorité hiérarchique et keywords  
+3. ANNONCER: 🎯 **CATÉGORIE:** [nom] - [justification] - [confiance: %]
+4. ROUTER vers règle spécialisée appropriée
+5. APPLIQUER règles spécialisées avec contexte
+
+## DÉTECTION CATÉGORIES HIÉRARCHIQUE
+**Priorité 1:** BUGFIX - Dysfonctionnement rapporté ou erreur existante
+**Priorité 2:** COMPLIANCE - Obligation légale/audit/sécurité documentée
+**Priorité 3:** EXPLORATION - Question technique à valider avec POC  
+**Priorité 4:** OPTIMIZATION - Performance mesurée insuffisante avec profiler
+**Priorité 5:** MIGRATION - Changement technologique/version forcé
+**Priorité 6:** CLEANUP - Code existant à nettoyer sans nouvelle fonctionnalité
+**Priorité 7:** FEATURE - Toute nouvelle fonctionnalité (default fallback)
+
+## KEYWORDS DETECTION
+- **bugfix**: ["fix", "bug", "error", "broken", "not working", "fails"]
+- **compliance**: ["security", "gdpr", "accessibility", "audit", "legal"]
+- **exploration**: ["test", "try", "experiment", "prototype", "poc", "evaluate"]
+- **optimization**: ["optimize", "performance", "speed", "faster", "slow"]
+- **migration**: ["migrate", "upgrade", "update", "port", "switch to"]
+- **cleanup**: ["refactor", "clean", "debt", "duplicate", "merge", "simplify"]
+- **feature**: ["add", "new", "implement", "create", "build", "develop"]
+
+## AMBIGUÏTÉ RESOLUTION
+- **Multiple matches**: Choisir priorité la plus haute et confirmer: "Détecté [X] mais aussi [Y]. Je procède avec [X] - correct ?"
+- **No clear match**: Demander: "Votre demande pourrait être: A) [option1] B) [option2] C) [option3]. Laquelle correspond ?"
+- **Context needed**: Poser questions spécifiques: "Pour mieux vous aider: 1) Y a-t-il un dysfonctionnement actuel ? 2) Voulez-vous ajouter quelque chose de nouveau ? 3) Cherchez-vous à nettoyer l'existant ?"
+
+## CONFIDENCE SYSTEM
+- **High confidence >80%**: Procéder directement avec la règle sélectionnée
+- **Medium confidence 50-80%**: Confirmer choix avec utilisateur
+- **Low confidence <50%**: Demander clarification obligatoire
+
+## ROUTING VERS RÈGLES SPÉCIALISÉES
+Use @cleanup-rules.mdc for technical debt reduction and code simplification
+Use @feature-rules.mdc for new functionality development with SOLID principles
+Use @bugfix-rules.mdc for error correction and minimal fixes
+Use @exploration-rules.mdc for POC development and technical validation
+Use @migration-rules.mdc for technology changes and version upgrades
+Use @optimization-rules.mdc for performance improvements with evidence
+Use @compliance-rules.mdc for legal/security requirements implementation
+
+## CONTRAINTES UNIVERSELLES
+- **SOLID + DRY + KISS + YAGNI** s'appliquent à toutes les catégories
+- **Strict mode**: Production code, zero tolerance for violations
+- **Flexible mode**: Exploration/prototype, justified exceptions allowed
+- **Context adaptation**: Adjusts strictness based on category and urgency signals
+
+## VALIDATION OBLIGATOIRE
+TOUJOURS annoncer la catégorie détectée avant de router vers une règle spécialisée.
+Format: 🎯 **CATÉGORIE:** [nom] - [justification] - [confiance: X%]
