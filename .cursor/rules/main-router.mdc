@@ -36,10 +36,6 @@ alwaysApply: true
 - **No clear match**: Demander: "Votre demande pourrait être: A) [option1] B) [option2] C) [option3]. Laquelle correspond ?"
 - **Context needed**: Poser questions spécifiques: "Pour mieux vous aider: 1) Y a-t-il un dysfonctionnement actuel ? 2) Voulez-vous ajouter quelque chose de nouveau ? 3) Cherchez-vous à nettoyer l'existant ?"
 
-## CONFIDENCE SYSTEM
-- **High confidence >80%**: Procéder directement avec la règle sélectionnée
-- **Medium confidence 50-80%**: Confirmer choix avec utilisateur
-- **Low confidence <50%**: Demander clarification obligatoire
 
 ## ROUTING VERS RÈGLES SPÉCIALISÉES
 Use @cleanup-rules.mdc for technical debt reduction and code simplification
@@ -59,3 +55,8 @@ Use @compliance-rules.mdc for legal/security requirements implementation
 ## VALIDATION OBLIGATOIRE
 TOUJOURS annoncer la catégorie détectée avant de router vers une règle spécialisée.
 Format: 🎯 **CATÉGORIE:** [nom] - [justification] - [confiance: X%]
+
+## LOGGING ET FEEDBACK
+- Après chaque classification, loggez dans un fichier 'routing-log.md' : [Date] - Requête: [user_query] - Catégorie: [nom] - Confiance: [X%] - Justification: [texte]
+- Si confiance < 70%, demandez feedback: "Classification OK? Si non, quelle catégorie préférez-vous? Je mettrai à jour mes règles."
+- Utilisez le feedback pour ajuster dynamiquement: Si utilisateur corrige souvent vers [Y], augmentez priorité de [Y] pour futures requêtes similaires.
