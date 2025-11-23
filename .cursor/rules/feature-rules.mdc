@@ -1,5 +1,5 @@
 ---
-description: "New feature development with SOLID principles enforcement"
+description: "New feature development with SOLID, DRY, YAGNI, KISS principles enforcement"
 globs: ["src/**/*.{ts,js,jsx,tsx,vue,svelte}", "components/**/*.{ts,js,jsx,tsx}", "pages/**/*.{ts,js,jsx,tsx}"]
 alwaysApply: false
 ---
